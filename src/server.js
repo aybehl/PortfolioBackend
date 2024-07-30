@@ -3,10 +3,10 @@ dotenv.config();
 
 const express = require("express");
 const path = require('path');
-const connectDB = require('./config/database');
-// const indexRoutes = require('./routes/index');
-// const bookRoutes = require('./routes/books');
-// const adminRoutes = require('./routes/admin');
+const connectDB = require('./configs/database');
+const projectRoutes = require('./routes/projectRoutes');
+const skillRoutes = require('./routes/skillRoutes');
+const contactRoutes = require('./routes/contactRoutes');
 
 // CONNECT TO MONGO DB
 connectDB();
@@ -23,9 +23,9 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 //SET UP ROUTES
-// app.use('/', indexRoutes);
-// app.use('/books', bookRoutes);
-// app.use('/admin', adminRoutes);
+app.use('/projects', projectRoutes);
+app.use('/skills', skillRoutes);
+app.use('/contacts', contactRoutes);
 
 //SETUP SERVER LISTENING
 app.listen(PORT, () => {
