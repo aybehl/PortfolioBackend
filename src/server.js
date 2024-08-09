@@ -1,4 +1,5 @@
 const dotenv = require("dotenv");
+const cors = require('cors');
 dotenv.config();
 
 const express = require("express");
@@ -14,6 +15,9 @@ connectDB();
 //SET UP THE EXPRESS APP
 const app = express();
 const PORT = process.env.PORT || "8888";
+
+//SET UP CORS MIDDLEWARE
+app.use(cors());
 
 //SET UP FOLDER FOR STATIC FILES
 app.use(express.static(path.join(__dirname, "public")));
