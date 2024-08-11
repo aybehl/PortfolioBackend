@@ -9,7 +9,7 @@ const { addContact } = require('../collections/contactCollection');
 router.post('/add', async(req, res) => {
     const { name, email, message } = req.body;
 
-    if (!name || !email || !message) {
+    if (!name || !email) {
         return res.status(400).send({
             method: 'POST',
             api: '/contact/add',
